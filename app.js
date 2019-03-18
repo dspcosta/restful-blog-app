@@ -25,6 +25,23 @@ app.get("/", function(req, res) {
     res.redirect("/blogs");
 });
 
+// NEW ROUTE
+
+app.get("/blogs/new", function(req, res) {
+    res.render("new");
+});
+
+// CREATE ROUTE
+
+app.post("/blogs", function(req, res) {
+    Blog.create(req.body.blog, function(err, newBlog) {
+        if (err) {
+            res.render("new");
+        } else {
+            res.redirect("/blogs");
+        }
+    });
+});
 app.get("/blogs", function(req, res) {
     Blog.find({}, function(err, blogs) {
         if (err) {

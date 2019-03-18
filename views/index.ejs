@@ -1,13 +1,15 @@
 <% include partials/header.ejs %>
 
-<h1>INDEX PAGE!</h1>
+<div class="container main">
+    <h1>INDEX PAGE!</h1>
+    <%blogs.forEach(function(blogs){%>
+        <div> 
+            <h2><%=blogs.title%></h2>
+            <img src="<%=blogs.image%>" alt="<%=blogs.title%>">
+            <span><%=blogs.created%></span>
+            <p><%=blogs.body%></p>
+        </div>
+    <%})%>    
+</div>
 
-<%blogs.forEach(function(blogs){%>
-    <div> 
-        <h2><%=blogs.title%></h2>
-        <img src="<%=blogs.image%>" alt="<%=blogs.title%>">
-        <span><%=blogs.created%></span>
-        <p><%=blogs.body%></p>
-    </div>
-<%})%>
 <% include partials/footer.ejs %>
